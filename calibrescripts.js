@@ -14,7 +14,7 @@ else {
 		$( "body" ).addClass( "home" );
 		}
 	}
-};
+}
 
 //If there are exactly 2 types of ebook, format to list
 firstDownload = $( 'a[id^=btnGroupDrop]' ).first();
