@@ -1,13 +1,10 @@
-//Get last folder title from URL and add as class to body//
-
 //Split path name to array and remove blanks
 var urlWithBlanks = window.location.pathname.split("/");
 var url = urlWithBlanks.filter(function(v){return v!==''});
 
-
 //If array only has one item, add home class
-//Else If path ends in number, go two items back in array to get text path
-//Else get last item in array 
+//Else If path ends in number, go two items back in array to get path name and add path as class to body
+//Else get last item in array and add as class to body
 if ( url.length == 1 ) {
 		$( "body" ).addClass( "home" );
 	}
@@ -22,7 +19,7 @@ if ( url.length == 1 ) {
 		} 
 	}
 
-//If there are exactly 2 types of ebook, format to list
+//If there are exactly 2 types of ebooks for a single book title, format to list
 firstDownload = $( 'a[id^=btnGroupDrop]' ).first();
 lastDownload = $( 'a[id^=btnGroupDrop]' ).last();
 downloadItems = $( 'a[id^=btnGroupDrop]' );
