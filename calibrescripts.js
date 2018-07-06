@@ -1,10 +1,10 @@
 //Get last folder title from URL and add as class to body
 var urlWithBlanks = window.location.pathname.split("/");
 var url = urlWithBlanks.filter(function(v){return v!==''});
-replaceunread = $( 'a[href$="unreadbooks/"' ).attr('href').slice(0,-1);
-replaceread = $( 'a[href$="readbooks/"' ).attr('href').slice(0,-1);
-$( 'a[href$="unreadbooks/"' ).attr('href', replaceunread);
-$( 'a[href$="readbooks/"' ).attr('href', replaceread);
+//replaceunread = $( 'a[href$="unreadbooks/"' ).attr('href').slice(0,-1);
+//replaceread = $( 'a[href$="readbooks/"' ).attr('href').slice(0,-1);
+//$( 'a[href$="unreadbooks/"' ).attr('href', replaceunread);
+//$( 'a[href$="readbooks/"' ).attr('href', replaceread);
 
 if ( url.length == 1 ) {
 		$( "body" ).addClass( "home" );
