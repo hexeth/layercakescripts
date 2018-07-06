@@ -1,12 +1,19 @@
 
 //Get last folder title from URL and add as class to body
-var url = document.URL;
+var url = $(location).attr('href');
 
 if (url.substr(url.lastIndexOf('/') + 1).length > 0) {
-    blur = url.substr(url.lastIndexOf('/') + 1);
-    $("body").addClass(blur);
-} else {
-    $("body").addClass("home");
+	if (jQuery.isNumeric(url.substr(url.lastIndexOf('/') + 1))) {
+		console.log( 'is numeric, getting one folder back' );
+	}
+else {  
+	if ( blur = url.substr(url.lastIndexOf( '/' ) + 1 )) {
+		$( "body" ).addClass( blur );
+	} 
+	else {
+		$( "body" ).addClass( "home" );
+		}
+	}
 };
 
 //If there are exactly 2 types of ebook, format to list
