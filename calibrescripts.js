@@ -1,20 +1,24 @@
-
 //Get last folder title from URL and add as class to body
-var url = $(location).attr('href');
+var urlWithBlanks = window.location.pathname.split("/");
+var url = urlWithBlanks.filter(function(v){return v!==''});
+replaceunread = $( 'a[href$="unreadbooks/"' ).attr('href').slice(0,-1);
+replaceread = $( 'a[href$="readbooks/"' ).attr('href').slice(0,-1);
+$( 'a[href$="unreadbooks/"' ).attr('href', replaceunread);
+$( 'a[href$="readbooks/"' ).attr('href', replaceread);
 
-if (url.substr(url.lastIndexOf('/') + 1).length > 0) {
-	if (jQuery.isNumeric(url.substr(url.lastIndexOf('/') + 1))) {
-		console.log( 'is numeric, getting one folder back' );
-	}
-else {  
-	if ( blur = url.substr(url.lastIndexOf( '/' ) + 1 )) {
-		$( "body" ).addClass( blur );
-	} 
-	else {
+if ( url[url.length-1] == "calibre" ) {
 		$( "body" ).addClass( "home" );
-		}
 	}
-}
+	else {  
+		if ( jQuery.isNumeric( url[url.length-1] )) {
+			 blur = url[url.length-2] ;
+			 $( "body" ).addClass( blur );
+			 }
+	else {
+			blur = url[url.length-1];
+			$( "body" ).addClass( blur );
+		} 
+	}
 
 //If there are exactly 2 types of ebook, format to list
 firstDownload = $( 'a[id^=btnGroupDrop]' ).first();
