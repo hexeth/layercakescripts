@@ -37,4 +37,6 @@ if ($( 'a[id^=btnGroupDrop]' ).length == 2) {
 }
 
 //remove the popup modals
-$( 'a' ).removeAttr( 'data-toggle', 'data-target', 'data-remote' );
+if (!$( "body" ).hasClass('book')) { 
+$(' a ').removeAttr( 'data-toggle', 'data-target', 'data-remote' );
+}
