@@ -29,9 +29,9 @@ downloads = $( 'a[id^=btnGroupDrop]' ).get();
 
 if ( $( downloads ).length == 2 ) {
 	$( '<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-download"></span>Download :<span class="caret"></span></button><ul class="dropdown-menu leramslist aria-labelledby="btnGroupDrop1"></ul>' ).insertBefore( downloads[downloads.length-1] );
-	$.each(downloads, function (i,val) {
-	$( ".leramslist" ).append("<li>" + downloads[i].outerHTML + "</li>");
 	$( ".leramslist" ).find( 'span' ).remove().removeClass( 'btn btn-primary' ).removeAttr( 'role' );
+	$.each(downloads, function (i,val) {
+		$( ".leramslist" ).append("<li>" + downloads[i].outerHTML + "</li>");
 	});
 }
 
