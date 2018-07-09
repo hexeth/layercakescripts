@@ -3,21 +3,25 @@ var urlWithBlanks = window.location.pathname.split( "/" );
 var url = urlWithBlanks.filter( function(v){return v!==''} );
 
 //If array only has one item, add home class
-//Else If path ends in number, go two items back in array to get path name and add path as class to body
-//Else get last item in array and add as class to body
+//Else If last path is not a number, go one item back in path, add path name as class to body
+//Else get two items back in path and add as class to body and If in reade
 if ( url.length == 1 ) {
 		$( "body" ).addClass( "home" );
 	}
 	else {  
-		if ( jQuery.isNumeric( url[url.length-1] )) {
-			 blur = url[url.length-2] ;
-			 $( "body" ).addClass( blur );
-			 }
-			 if ( ( '.epub' ).length > 0 ); {
-			 $('iframe[id^=epub').contents().find('body').addClass('epub-frame');
+		if ( isNaN( url[url.length-1] )) {
+			if ( url.indexOf('read') == 1 ) {
+				blur = 'read'
+				$('iframe[id^=epub').contents().find('body').addClass('epub-frame');
 			}
-	else {
-			blur = url[url.length-1];
+			else {
+				blur = url[url.length-1];
+			}
+			$( "body" ).addClass( blur );
+				
+		}
+		else {
+			blur = url[url.length-2] ;
 			$( "body" ).addClass( blur );
 		} 
 	}
