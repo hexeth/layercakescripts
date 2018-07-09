@@ -8,9 +8,11 @@ if ( url.length == 1 ) {
 		$( "body" ).addClass( "home" );
 }
 else {  
+
 	if ( isNaN( url[url.length-1] )) {
 		if ( url.indexOf('read') == 1 ) {
 			blur = 'read'	
+			$( "body" ).addClass( blur );	
 			$('iframe[id^=epub').contents().find('body').addClass('epub-frame');
 		}
 		else {
@@ -27,11 +29,11 @@ $( "body" ).addClass( blur );
 //If there are exactly 2 types of ebooks for a single book title, format to list
 downloads = $( 'a[id^=btnGroupDrop]' ).get();
 
-if ( $( downloads ).length == 2 ) {
+if ( $( downloads ).length > 1 ) {
 	$( '<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-download"></span>Download :<span class="caret"></span></button><ul class="dropdown-menu leramslist aria-labelledby="btnGroupDrop1"></ul>' ).insertBefore( downloads[downloads.length-1] );
 	$( ".leramslist" ).find( 'span' ).remove().removeClass( 'btn btn-primary' ).removeAttr( 'role' );
 	$.each(downloads, function (i,val) {
-		$( ".leramslist" ).append("<li>" + downloads[i].outerHTML + "</li>");
+		$("<li>" + downloads[i].outerHTML + "</li>").detach().appendTo( ".leramslist" );
 	});
 }
 
