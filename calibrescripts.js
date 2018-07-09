@@ -4,43 +4,35 @@ var url = urlWithBlanks.filter( function(v){return v!==''} );
 
 //If array only has one item, add home class
 //Else If last path is not a number, go one item back in path, add path name as class to body
-//Else get two items back in path and add as class to body and If in reade
 if ( url.length == 1 ) {
 		$( "body" ).addClass( "home" );
-	}
-	else {  
-		if ( isNaN( url[url.length-1] )) {
-			if ( url.indexOf('read') == 1 ) {
-				blur = 'read'
-				$('iframe[id^=epub').contents().find('body').addClass('epub-frame');
-			}
-			else {
-				blur = url[url.length-1];
-			}
-			$( "body" ).addClass( blur );
-				
+}
+else {  
+	if ( isNaN( url[url.length-1] )) {
+		if ( url.indexOf('read') == 1 ) {
+			blur = 'read'
+			$('iframe[id^=epub').contents().find('body').addClass('epub-frame');
 		}
 		else {
-			blur = url[url.length-2] ;
-			$( "body" ).addClass( blur );
-		} 
+			blur = url[url.length-1];
+		}
+		
 	}
+	else {
+		blur = url[url.length-2] ;
+	} 
+$( "body" ).addClass( blur );	
+}
 
 //If there are exactly 2 types of ebooks for a single book title, format to list
-firstDownload = $( 'a[id^=btnGroupDrop]' ).first();
-lastDownload = $( 'a[id^=btnGroupDrop]' ).last();
-downloadItems = $( 'a[id^=btnGroupDrop]' );
+downloads = $( 'a[id^=btnGroupDrop]' ).get();
 
-if ($( 'a[id^=btnGroupDrop]' ).length == 2 ) {
-
-	downloadItems.find( 'span' ).remove()
-	downloadItems.removeClass( 'btn btn-primary' );
-	downloadItems.removeAttr( 'role' );
-
-	$( '<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-download"></span>Download :<span class="caret"></span></button><ul class="dropdown-menu leramslist aria-labelledby="btnGroupDrop1"><li></li><li></li></ul>' ).insertBefore( firstDownload );
-
-	$( firstDownload ).prependTo( ".leramslist li:first-child" );
-	$( lastDownload ).prependTo( ".leramslist li:last-child" );
+if ( $( downloads ).length == 2 ) {
+	$( '<button id="btnGroupDrop1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-download"></span>Download :<span class="caret"></span></button><ul class="dropdown-menu leramslist aria-labelledby="btnGroupDrop1"></ul>' ).insertBefore( downloads[downloads.length-1] );
+	$.each(downloads, function (i,val) {
+	$( ".leramslist" ).append("<li>" + downloads[i].outerHTML + "</li>");
+	$( ".leramslist" ).find( 'span' ).remove().removeClass( 'btn btn-primary' ).removeAttr( 'role' );
+	});
 }
 
 //remove the popup modals
