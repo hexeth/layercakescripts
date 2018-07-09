@@ -11,8 +11,8 @@ else {
 	if ( isNaN( url[url.length-1] )) {
 		if ( url.indexOf('read') == 1 ) {
 			blur = 'read'
-			$('iframe[id^=epub').contents().find('body').addClass('epub-frame');
 			$( "body" ).addClass( blur );	
+			$('iframe[id^=epub').contents().find('body').addClass('epub-frame');
 		}
 		else {
 			blur = url[url.length-1];
