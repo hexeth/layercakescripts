@@ -12,16 +12,17 @@ else {
 		if ( url.indexOf('read') == 1 ) {
 			blur = 'read'
 			$('iframe[id^=epub').contents().find('body').addClass('epub-frame');
+			$( "body" ).addClass( blur );	
 		}
 		else {
 			blur = url[url.length-1];
-		}
-		
+			$( "body" ).addClass( blur );	
+		}	
 	}
 	else {
-		blur = url[url.length-2] ;
+		blur = url[url.length-2];
+		$( "body" ).addClass( blur );	
 	} 
-$( "body" ).addClass( blur );	
 }
 
 //If there are exactly 2 types of ebooks for a single book title, format to list
