@@ -25,18 +25,12 @@ if ( $( downloads ).length > 1 ) {
 }
 
 //remove the popup modals
-if (!$( "body" ).hasClass('book')) { 
-$(' a ').removeAttr( 'data-toggle', 'data-target', 'data-remote' );
+if (!$( "body" ).hasClass('admin')) { 
+$(' a:not(.dropdown-toggle) ').removeAttr( 'data-toggle', 'data-target', 'data-remote' );
 }
 
-$(function() {
-  function manipIframe() {
-    el = $('body', $('iframe').contents());
-    if (el.length != 1) {
-      setTimeout(manipIframe, 100);
-      return;
-    }
-   	el.addClass( 'read-frame' );
-  }
-  manipIframe();
+$('body.read').on('DOMNodeInserted', 'iframe', function(e) {
+	setTimeout(function() {
+		$("iframe").contents().find("body").addClass( 'read-frame' );
+	}, 750);
 });
