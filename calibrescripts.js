@@ -33,4 +33,6 @@ $("iframe[id*=iframe").ready(function(){
 	console.log( 'iframe loaded' )
 	$("iframe").contents().find("body").addClass( 'read-frame' );
 });
-$("iframe").contents().find("body").addClass( 'read-frame' );
+setTimeout(function() {
+    	$("iframe").contents().find("body").addClass( 'read-frame' );
+}, 1000);
