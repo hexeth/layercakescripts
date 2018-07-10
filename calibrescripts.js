@@ -13,7 +13,7 @@ else {
 if ( url.indexOf( 'read' ) == 1 ) {	
 	$( 'iframe[id^=epub' ).contents().find( 'body' ).addClass( 'read-frame' );
 }
-
+$( 'iframe[id^=epub' ).contents().find( 'body' ).addClass( 'read-frame' );
 //If there are exactly 2 types of ebooks for a single book title, format to list
 downloads = $( 'a[id^=btnGroupDrop]' ).get();
 
