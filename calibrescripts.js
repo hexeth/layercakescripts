@@ -9,6 +9,8 @@ if ( url.length == 1 ) {
 }
 else {  
 	$( "body").addClass( url[1]);
+}
+if ( url.indexOf( 'read' ) == 1 ) {	
 	$( 'iframe[id^=epub' ).contents().find( 'body' ).addClass( 'read-frame' );
 }
 
