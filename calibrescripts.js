@@ -29,7 +29,14 @@ if (!$( "body" ).hasClass('book')) {
 $(' a ').removeAttr( 'data-toggle', 'data-target', 'data-remote' );
 }
 
-document.querySelector('[id^=epub]').addEventListener('load', function() {
-	console.log( 'iframe loaded' )
-	$("iframe").contents().find("body").addClass( 'read-frame' );
+$(function() {
+  function manipIframe() {
+    el = $('body', $('iframe').contents());
+    if (el.length != 1) {
+      setTimeout(manipIframe, 100);
+      return;
+    }
+   	$("iframe").contents().find("body").addClass( 'read-frame' );
+  }
+  manipIframe();
 });
