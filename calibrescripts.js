@@ -8,23 +8,11 @@ if ( url.length == 1 ) {
 		$( "body" ).addClass( "home" );
 }
 else {  
-
-	if ( isNaN( url[url.length-1] )) {
-		if ( url.indexOf('read') == 1 ) {
-			blur = 'read'	
-			$( "body" ).addClass( blur );	
-			$('iframe[id^=epub').contents().find('body').addClass('epub-frame');
-		}
-		else {
-			blur = url[url.length-1];
-		}	
-		$( "body" ).addClass( blur );	
-	}
-	else {
-		blur = url[url.length-2];	
-	} 
-$( "body" ).addClass( blur );	
+		$( "body").addClass( url[1]);
 }
+if ( url[1] == "read" ) {	
+			$( 'iframe' ).contents().find( 'body' ).addClass('read-frame');
+		}
 
 //If there are exactly 2 types of ebooks for a single book title, format to list
 downloads = $( 'a[id^=btnGroupDrop]' ).get();
