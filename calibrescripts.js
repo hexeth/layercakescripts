@@ -10,10 +10,6 @@ if ( url.length == 1 ) {
 else {  
 	$( "body").addClass( url[1]);
 }
-$(window).load(function() {
-      $("iframe[id^=epub").contents().find("body").addClass( 'read-frame' );
-	  console.log( $("iframe[id^=epub").contents().find("body") );
-    });
 
 //If there are exactly 2 types of ebooks for a single book title, format to list
 downloads = $( 'a[id^=btnGroupDrop]' ).get();
@@ -32,3 +28,8 @@ if ( $( downloads ).length > 1 ) {
 if (!$( "body" ).hasClass('book')) { 
 $(' a ').removeAttr( 'data-toggle', 'data-target', 'data-remote' );
 }
+
+$(window).load(function() {
+      $("iframe[id^=epub").contents().find("body").addClass( 'read-frame' );
+	  console.log( $("iframe[id^=epub").contents().find("body").addClass( 'read-frame' ) );
+    });
