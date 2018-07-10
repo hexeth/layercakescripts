@@ -29,7 +29,7 @@ if (!$( "body" ).hasClass('book')) {
 $(' a ').removeAttr( 'data-toggle', 'data-target', 'data-remote' );
 }
 
-document.querySelector('[id^=epub]').id).addEventListener('load', function() {
+document.querySelector('[id^=epub]').addEventListener('load', function() {
 	console.log( 'iframe loaded' )
 	$("iframe").contents().find("body").addClass( 'read-frame' );
 });
