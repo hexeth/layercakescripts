@@ -5,14 +5,14 @@ var url = urlWithBlanks.filter( function(v){return v!==''} );
 //If array only has one item, add home class
 //Else If last path is not a number, go one item back in path, add path name as class to body
 if ( url.length == 1 ) {
-		$( "body" ).addClass( "home" );
+	$( "body" ).addClass( "home" );
 }
 else {  
-		$( "body").addClass( url[1]);
+	$( "body").addClass( url[1]);
+	if ( $( '.read' )[0]) {	
+		$( 'iframe[id^=epub' ).contents().find( 'body' ).addClass( 'read-frame' );
+	}
 }
-if ( url[1] == "read" ) {	
-			$( 'iframe' ).contents().find( 'body' ).addClass('read-frame');
-		}
 
 //If there are exactly 2 types of ebooks for a single book title, format to list
 downloads = $( 'a[id^=btnGroupDrop]' ).get();
