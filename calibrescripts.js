@@ -36,7 +36,7 @@ $(function() {
       setTimeout(manipIframe, 100);
       return;
     }
-   	$("iframe").contents().find("body").addClass( 'read-frame' );
+   	el.addClass( 'read-frame' );
   }
   manipIframe();
 });
