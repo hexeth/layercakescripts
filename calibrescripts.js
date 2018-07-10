@@ -10,7 +10,7 @@ if ( url.length == 1 ) {
 else {  
 	$( "body").addClass( url[1]);
 }
- $(document).ready(function() {
+$(window).load(function() {
       $("iframe[id^=epub").contents().find("body").addClass( 'read-frame' );
 	  console.log( $("iframe[id^=epub").contents().find("body") );
     });
