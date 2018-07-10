@@ -29,7 +29,8 @@ if (!$( "body" ).hasClass('book')) {
 $(' a ').removeAttr( 'data-toggle', 'data-target', 'data-remote' );
 }
 
-$("[id*=iframe").load(function(){
+$("iframe[id*=iframe").ready(function(){
 	console.log( 'iframe loaded' )
+	$("iframe").contents().find("body").addClass( 'read-frame' );
 });
-$("[id*=iframe").contents().find("body").addClass( 'read-frame' );
+$("iframe").contents().find("body").addClass( 'read-frame' );
